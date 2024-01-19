@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pickids_flutter/common/common_loading.dart';
 import 'package:pickids_flutter/gallery_pick/gallery_pick_loading.dart';
+import 'package:pickids_flutter/gallery_pick/gallery_pick_map_moving.dart';
 import 'package:pickids_flutter/my_pick/invite/my_pick_invite_empty.dart';
 import 'package:pickids_flutter/my_pick/invite/my_pick_invite_thumbnail.dart';
 
@@ -131,7 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     border: Border.all(color: Colors.black),
                     color: Colors.white,
                     shape: BoxShape.rectangle),
-                child: Center(child: Text('기관_전시 초대_썸네일')),
+                child: const Center(child: Text('기관_전시 초대_썸네일')),
               ),
             ),
             InkWell(
@@ -150,7 +151,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     border: Border.all(color: Colors.black),
                     color: Colors.white,
                     shape: BoxShape.rectangle),
-                child: Center(child: Text('전시관 로딩 페이지')),
+                child: const Center(child: Text('전시관 로딩 페이지')),
               ),
             ),
             InkWell(
@@ -169,7 +170,26 @@ class _MyHomePageState extends State<MyHomePage> {
                     border: Border.all(color: Colors.black),
                     color: Colors.white,
                     shape: BoxShape.rectangle),
-                child: Center(child: Text('일반 로딩 페이지')),
+                child: const Center(child: Text('일반 로딩 페이지')),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                print('전시관 맵 변경 페이지');
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const GalleryPickMapMoving(),
+                  ),
+                );
+              },
+              child: Container(
+                width: 200,
+                height: 50,
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                    color: Colors.white,
+                    shape: BoxShape.rectangle),
+                child: const Center(child: Text('전시관 맵 변경 페이지')),
               ),
             ),
           ],
