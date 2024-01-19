@@ -133,7 +133,7 @@ class _GalleryPickMapMovingState extends State<GalleryPickMapMoving> {
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(
                       width: 1,
-                      color: Color(_itemClickStates[index] ? 0xff5b46f9 : 0xffdddddd),
+                      color: Color(_itemClickStates[index] ? 0xff5b46f9 : _itemNowStates[index] ? 0x00dddddd : 0xffdddddd),
                     ),
                     color: Color(_itemClickStates[index] ? 0xffefedff : 0xffffffff),
                     boxShadow: const [
@@ -183,7 +183,7 @@ class _GalleryPickMapMovingState extends State<GalleryPickMapMoving> {
                     color: const Color(0x80f7f7f7),
                     border: Border.all(
                       width: 1,
-                      color: const Color(0xffdddddd),
+                      color: const Color(0x80dddddd),
                     ),
                   ),
                 ) : Container(),
