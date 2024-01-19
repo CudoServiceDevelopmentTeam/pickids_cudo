@@ -66,7 +66,6 @@ class _GalleryPickMapMovingState extends State<GalleryPickMapMoving> {
     return SafeArea(
       child: Stack(
         children: [
-          Container(color: const Color(0xffffffff).withOpacity(0.8)),
           Container(color: const Color(0xff000000).withOpacity(0.8)),
           Align(
             alignment: Alignment.center,
