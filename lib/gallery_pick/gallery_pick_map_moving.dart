@@ -66,7 +66,7 @@ class _GalleryPickMapMovingState extends State<GalleryPickMapMoving> {
     return SafeArea(
       child: Stack(
         children: [
-          Container(color: const Color(0xff000000).withOpacity(0.8)),
+          Container(color: const Color(0xff000000).withOpacity(0.5)),
           Align(
             alignment: Alignment.center,
             child: Container(
@@ -112,7 +112,6 @@ class _GalleryPickMapMovingState extends State<GalleryPickMapMoving> {
 
   Widget _listItemWidget() {
     return Container(
-      padding: const EdgeInsets.fromLTRB(0, 24, 0, 24),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: _places.length,
@@ -124,9 +123,9 @@ class _GalleryPickMapMovingState extends State<GalleryPickMapMoving> {
                   width: 160,
                   margin: EdgeInsets.fromLTRB(
                     (index == 0) ? 24 : 0,
-                    0,
+                    24,
                     (index == (_places.length - 1)) ? 24 : 16,
-                    0,
+                    24,
                   ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
@@ -173,9 +172,9 @@ class _GalleryPickMapMovingState extends State<GalleryPickMapMoving> {
                   width: 160,
                   margin: EdgeInsets.fromLTRB(
                     (index == 0) ? 24 : 0,
-                    0,
+                    24,
                     (index == (_places.length - 1)) ? 24 : 16,
-                    0,
+                    24,
                   ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
@@ -191,7 +190,7 @@ class _GalleryPickMapMovingState extends State<GalleryPickMapMoving> {
                   child: _itemClickStates[index] ? Container(
                     margin: EdgeInsets.fromLTRB(
                       (index == 0) ? 24 : 0,
-                      0,
+                      24,
                       (index == (_places.length - 1)) ? 24 : 16,
                       0,
                     ),
