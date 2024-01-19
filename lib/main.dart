@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pickids_flutter/common/common_loading.dart';
+import 'package:pickids_flutter/gallery_pick/gallery_pick_loading.dart';
 import 'package:pickids_flutter/my_pick/invite/my_pick_invite_empty.dart';
 import 'package:pickids_flutter/my_pick/invite/my_pick_invite_thumbnail.dart';
 
@@ -130,6 +132,44 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: Colors.white,
                     shape: BoxShape.rectangle),
                 child: Center(child: Text('기관_전시 초대_썸네일')),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                print('전시관 로딩 페이지');
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => GallaryPickLoading(),
+                  ),
+                );
+              },
+              child: Container(
+                width: 200,
+                height: 50,
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                    color: Colors.white,
+                    shape: BoxShape.rectangle),
+                child: Center(child: Text('전시관 로딩 페이지')),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                print('일반 로딩 페이지');
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const CommonLoading(),
+                  ),
+                );
+              },
+              child: Container(
+                width: 200,
+                height: 50,
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                    color: Colors.white,
+                    shape: BoxShape.rectangle),
+                child: Center(child: Text('일반 로딩 페이지')),
               ),
             ),
           ],
