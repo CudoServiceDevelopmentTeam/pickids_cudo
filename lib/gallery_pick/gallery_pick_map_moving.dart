@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
  * _itemClickStates : item의 각각의 클릭 여부를 판단하기 위한 체크 리스트
  * _places : 공간의 이름을 갖고 있는 리스트
  * _placeImages : 공간 이미지의 경로를 갖고 있는 리스트
+ * _itemNowStates : 현재 위치로 들어오는 index를 갖고 있는 리스트
  */
 
 class GalleryPickMapMoving extends StatefulWidget {
@@ -21,6 +22,7 @@ class _GalleryPickMapMovingState extends State<GalleryPickMapMoving> {
 
   bool _buttonClick = false;
   List<bool> _itemClickStates = [false, false, false, false];
+  List<bool> _itemNowStates = [false, false, true, false];
   List<String> _places = ['인트로 공간', '교실 공간', '블럭 공간', '야외 공간'];
   List<String> _placeImages = ['assets/images/img_exhibition_connect_intro_112_x_84.png',
     'assets/images/img_exhibition_connect_intro_112_x_84.png',
@@ -131,9 +133,9 @@ class _GalleryPickMapMovingState extends State<GalleryPickMapMoving> {
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(
                       width: 1,
-                      color: const Color(0xffdddddd),
+                      color: Color(_itemClickStates[index] ? 0xff5b46f9 : 0xffdddddd),
                     ),
-                    color: const Color(0xffffffff),
+                    color: Color(_itemClickStates[index] ? 0xffefedff : 0xffffffff),
                     boxShadow: const [
                       BoxShadow(
                         color: Color(0x0c000000),
@@ -152,10 +154,10 @@ class _GalleryPickMapMovingState extends State<GalleryPickMapMoving> {
                           margin: const EdgeInsets.fromLTRB(24, 16, 0, 0),
                           child: Text(
                             _places[index],
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 14,
                               letterSpacing: -0.28,
-                              color: Colors.black,
+                              color: Color(_itemClickStates[index] ? 0xff5b46f9 : 0xff333333),
                               decoration: TextDecoration.none,
                             ),
                           ),
@@ -168,7 +170,7 @@ class _GalleryPickMapMovingState extends State<GalleryPickMapMoving> {
                     ),
                   ),
                 ),
-                _itemClickStates[index] ? Container(
+                _itemNowStates[index] ? Container(
                   width: 160,
                   margin: EdgeInsets.fromLTRB(
                     (index == 0) ? 24 : 0,
@@ -187,7 +189,7 @@ class _GalleryPickMapMovingState extends State<GalleryPickMapMoving> {
                 ) : Container(),
                 Positioned.fill(child: Align(
                   alignment: Alignment.topRight,
-                  child: _itemClickStates[index] ? Container(
+                  child: _itemNowStates[index] ? Container(
                     margin: EdgeInsets.fromLTRB(
                       (index == 0) ? 24 : 0,
                       24,
@@ -219,7 +221,7 @@ class _GalleryPickMapMovingState extends State<GalleryPickMapMoving> {
                         )
                     ),
                   ) : Container(),
-                ))
+                )),
               ],
             ),
             onTap: () {
